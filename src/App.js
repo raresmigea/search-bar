@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
-
+import { QueryClient, QueryClientProvider } from 'react-query';
 import './App.css';
+import Fetch from './components/fetch';
+// import useGetData from './components/use-get-data';
+const queryClient = new QueryClient({});
 
 // This holds a list of some fiction people
 // Some  have the same name but different age and id
@@ -17,6 +20,9 @@ const USERS = [
 ];
 
 function App() {
+  // const { data, isLoading } = useGetData();
+  // console.log('data: ', data);
+  // console.log('isLoading: ', isLoading);
   // the value of the search field
   const [name, setName] = useState('');
 
@@ -41,29 +47,32 @@ function App() {
   };
 
   return (
-    <div className='container'>
-      <input
-        type='search'
-        value={name}
-        onChange={filter}
-        className='input'
-        placeholder='Filter'
-      />
+    <QueryClientProvider client={queryClient}>
+      <div className='container'>
+        <Fetch />
+        <input
+          type='search'
+          value={name}
+          onChange={filter}
+          className='input'
+          placeholder='Filter'
+        />
 
-      <div className='user-list'>
-        {foundUsers && foundUsers.length > 0 ? (
-          foundUsers.map((user) => (
-            <li key={user.id} className='user'>
-              <span className='user-id'>{user.id}</span>
-              <span className='user-name'>{user.name}</span>
-              <span className='user-age'>{user.age} year old</span>
-            </li>
-          ))
-        ) : (
-          <h1>No results found!</h1>
-        )}
+        <div className='user-list'>
+          {foundUsers && foundUsers.length > 0 ? (
+            foundUsers.map((user) => (
+              <li key={user.id} className='user'>
+                <span className='user-id'>{user.id}</span>
+                <span className='user-name'>{user.name}</span>
+                <span className='user-age'>{user.age} year old</span>
+              </li>
+            ))
+          ) : (
+            <h1>No results found!</h1>
+          )}
+        </div>
       </div>
-    </div>
+    </QueryClientProvider>
   );
 }
 
