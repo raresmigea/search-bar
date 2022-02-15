@@ -24,7 +24,7 @@ const Fetch = () => {
   //   return <h1>{error}</h1>;
   // }
 
-  console.log('data: ', data);
+  console.log('datas: ', data);
 
   const [list, setList] = useState([]);
 
@@ -32,21 +32,21 @@ const Fetch = () => {
     if (isSuccess && !isLoading) {
       setList(data.data.fx);
     }
-  }, [isSuccess, isLoading, data.data.fx]);
+  }, [isSuccess, isLoading, data?.data?.fx]);
 
   console.log('list ', list);
 
   return (
     <>
-      {isSuccess && (
+      {isSuccess ? (
         <Paper style={{ maxHeight: 400, overflow: 'auto' }}>
           <List>
-            {list.map((a, index) => (
-              <Currency data={a} key={index} />
+            {list.map((element, index) => (
+              <Currency data={element} key={`currency-${index}`} />
             ))}
           </List>
         </Paper>
-      )}
+      ) : null}
     </>
   );
 };
