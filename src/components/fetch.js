@@ -56,10 +56,10 @@ const Fetch = () => {
         value={name}
         onChange={filter}
         className='input'
-        placeholder='Filter'
+        placeholder='search currency'
       />
       {isSuccess ? (
-        <Paper style={{ maxHeight: 400, overflow: 'auto' }}>
+        <Paper style={{ height: 400, overflow: 'auto' }}>
           <List>
             {list.map((element, index) => (
               <Currency data={element} key={`currency-${index}`} />
