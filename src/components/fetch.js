@@ -25,25 +25,25 @@ const Fetch = () => {
   // }
 
   const [list, setList] = useState([]);
+  const [searchedList, searchedSetList] = useState([]);
   const [name, setName] = useState('');
 
   useEffect(() => {
     if (isSuccess && !isLoading) {
       setList(data.data.fx);
+      searchedSetList(data.data.fx);
     }
   }, [isSuccess, isLoading, data?.data?.fx]);
 
-  console.log('list ', list);
-
   const filter = (e) => {
     const keyword = e.target.value;
-
     if (keyword !== '') {
-      const results = list.filter((user) => {
+      const results = searchedList.filter((user) => {
         return user.currency.toLowerCase().startsWith(keyword.toLowerCase());
-        // Use the toLowerCase() method to make it case-insensitive
       });
       setList(results);
+    } else {
+      setList(data.data.fx);
     }
 
     setName(keyword);
