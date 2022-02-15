@@ -50,13 +50,13 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <div className='container'>
         <Fetch />
-        <input
+        {/* <input
           type='search'
           value={name}
           onChange={filter}
           className='input'
           placeholder='Filter'
-        />
+        /> */}
 
         <div className='user-list'>
           {foundUsers && foundUsers.length > 0 ? (

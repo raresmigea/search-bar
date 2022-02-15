@@ -24,9 +24,8 @@ const Fetch = () => {
   //   return <h1>{error}</h1>;
   // }
 
-  console.log('datas: ', data);
-
   const [list, setList] = useState([]);
+  const [name, setName] = useState('');
 
   useEffect(() => {
     if (isSuccess && !isLoading) {
@@ -36,8 +35,29 @@ const Fetch = () => {
 
   console.log('list ', list);
 
+  const filter = (e) => {
+    const keyword = e.target.value;
+
+    if (keyword !== '') {
+      const results = list.filter((user) => {
+        return user.currency.toLowerCase().startsWith(keyword.toLowerCase());
+        // Use the toLowerCase() method to make it case-insensitive
+      });
+      setList(results);
+    }
+
+    setName(keyword);
+  };
+
   return (
     <>
+      <input
+        type='search'
+        value={name}
+        onChange={filter}
+        className='input'
+        placeholder='Filter'
+      />
       {isSuccess ? (
         <Paper style={{ maxHeight: 400, overflow: 'auto' }}>
           <List>
