@@ -18,15 +18,29 @@ const Currency = (data) => {
     <ListItem className='list-item'>
       <div className='currency-item'>
         <div className='currency-item-column'>
-          <div>Currency: {data.data.currency}</div>
-          <div>Full Name: {data.data.nameI18N}</div>
-          <div>Buy: {data.data.exchangeRate?.buy}</div>
-          <div>Sell: {data.data.exchangeRate?.sell}</div>
+          <div>
+            <span className='label'>Currency: </span>
+            {data.data.currency ?? 'no data'}
+          </div>
+          <div>
+            <span className='label'>Full Name: </span>
+            {data.data.nameI18N ?? 'no data'}
+          </div>
+          <div>
+            <span className='label'>Buy: </span>
+            {data.data.exchangeRate?.buy ?? 'no data'}
+          </div>
+          <div>
+            <span className='label'>Sell: </span>
+            {data.data.exchangeRate?.sell ?? 'no data'}
+          </div>
         </div>
         <div className='currency-item-column'>
           {flag ? (
             <>
-              <div>Flag:</div>
+              <div>
+                <span className='label'>Flag</span>
+              </div>
               <img src={flag} alt='this is a flag' />
             </>
           ) : (

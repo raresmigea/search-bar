@@ -12,3 +12,7 @@
 .currency-item-column {
   width: 50%;
 }
+
+.label {
+  font-weight: bold;
+}
