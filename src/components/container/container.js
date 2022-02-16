@@ -4,6 +4,7 @@ import { useQuery } from 'react-query';
 import Currency from '../currency/currency';
 import List from '@material-ui/core/List';
 import Paper from '@material-ui/core/Paper';
+import TextField from '@material-ui/core/TextField';
 import './container.css';
 
 const Container = () => {
@@ -44,12 +45,13 @@ const Container = () => {
 
   return (
     <>
-      <input
+      <TextField
+        label='Search by currency code'
         type='search'
         value={name}
         onChange={filter}
         className='input'
-        placeholder='Search by currency code'
+        variant='outlined'
       />
       {isSuccess ? (
         <Paper className='paper'>
