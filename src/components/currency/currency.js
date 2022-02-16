@@ -5,7 +5,7 @@ const Currency = (data) => {
   let flag = null;
 
   try {
-    flag = require(`../flags/${data.data.currency
+    flag = require(`../../flags/${data.data.currency
       .substring(0, 2)
       .toLowerCase()}.png`);
   } catch {

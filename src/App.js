@@ -1,7 +1,7 @@
 import React from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import './App.css';
-import Fetch from './components/fetch';
+import Fetch from './components/container/fetch';
 const queryClient = new QueryClient({});
 
 function App() {
