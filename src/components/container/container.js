@@ -9,15 +9,12 @@ import Box from '@material-ui/core/Box';
 import './container.css';
 
 const Container = () => {
-  const { isLoading, isError, data, error, refetch, isSuccess } = useQuery(
-    'fetch',
-    async () => {
-      const data = await axios(
-        'https://run.mocky.io/v3/c88db14a-3128-4fbd-af74-1371c5bb0343'
-      );
-      return data;
-    }
-  );
+  const { isLoading, data, isSuccess } = useQuery('fetch', async () => {
+    const data = await axios(
+      'https://run.mocky.io/v3/c88db14a-3128-4fbd-af74-1371c5bb0343'
+    );
+    return data;
+  });
 
   const [list, setList] = useState([]);
   const [searchedList, searchedSetList] = useState([]);
