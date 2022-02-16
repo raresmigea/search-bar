@@ -11,3 +11,8 @@
 .input {
   width: 500px;
 }
+
+.no-results {
+  display: flex;
+  justify-content: center;
+}

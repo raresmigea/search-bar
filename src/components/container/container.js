@@ -4,9 +4,9 @@ import { useQuery } from 'react-query';
 import Currency from '../currency/currency';
 import List from '@material-ui/core/List';
 import Paper from '@material-ui/core/Paper';
-import './fetch.css';
+import './container.css';
 
-const Fetch = () => {
+const Container = () => {
   const { isLoading, isError, data, error, refetch, isSuccess } = useQuery(
     'fetch',
     async () => {
@@ -16,14 +16,6 @@ const Fetch = () => {
       return data;
     }
   );
-
-  // if (isLoading) {
-  //   return <h1>Loading...</h1>;
-  // }
-
-  // if (isError) {
-  //   return <h1>{error}</h1>;
-  // }
 
   const [list, setList] = useState([]);
   const [searchedList, searchedSetList] = useState([]);
@@ -62,9 +54,13 @@ const Fetch = () => {
       {isSuccess ? (
         <Paper className='paper'>
           <List className='list'>
-            {list.map((element, index) => (
-              <Currency data={element} key={`currency-${index}`} />
-            ))}
+            {list.length ? (
+              list.map((element, index) => (
+                <Currency data={element} key={`currency-${index}`} />
+              ))
+            ) : (
+              <div className='no-results'>no found results</div>
+            )}
           </List>
         </Paper>
       ) : null}
@@ -72,4 +68,4 @@ const Fetch = () => {
   );
 };
 
-export default Fetch;
+export default Container;
