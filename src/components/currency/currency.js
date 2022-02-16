@@ -1,9 +1,10 @@
 import React from 'react';
-import './currency.css';
 import ListItem from '@material-ui/core/ListItem';
+import './currency.css';
+
 const Currency = (data) => {
   let flag = null;
-
+  console.log('data: ', data);
   try {
     flag = require(`../../flags/${data.data.currency
       .substring(0, 2)
