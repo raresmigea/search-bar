@@ -9,7 +9,7 @@ const Currency = (data) => {
       .substring(0, 2)
       .toLowerCase()}.png`);
   } catch {
-    flag = 'ad.png';
+    flag = null;
   }
 
   console.log('fff ', flag);
@@ -23,8 +23,14 @@ const Currency = (data) => {
           <div>Sell: {data.data.exchangeRate?.sell}</div>
         </div>
         <div className='currency-item-column'>
-          <div>Flag:</div>
-          <img src={flag} alt='this is a flag' />
+          {flag ? (
+            <>
+              <div>Flag:</div>
+              <img src={flag} alt='this is a flag' />
+            </>
+          ) : (
+            <div>flag not found</div>
+          )}
         </div>
       </div>
     </ListItem>
