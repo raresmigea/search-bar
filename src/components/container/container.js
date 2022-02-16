@@ -5,6 +5,7 @@ import Currency from '../currency/currency';
 import List from '@material-ui/core/List';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
+import Box from '@material-ui/core/Box';
 import './container.css';
 
 const Container = () => {
@@ -44,7 +45,7 @@ const Container = () => {
   };
 
   return (
-    <>
+    <Box variant='outlined'>
       <TextField
         label='Search by currency code'
         type='search'
@@ -54,7 +55,7 @@ const Container = () => {
         variant='outlined'
       />
       {isSuccess ? (
-        <Paper className='paper'>
+        <Paper className='paper' variant='outlined'>
           <List className='list'>
             {list.length ? (
               list.map((element, index) => (
@@ -66,7 +67,7 @@ const Container = () => {
           </List>
         </Paper>
       ) : null}
-    </>
+    </Box>
   );
 };
 

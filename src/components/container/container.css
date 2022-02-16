@@ -3,9 +3,10 @@
 }
 
 .paper {
-  max-height: 500px;
+  height: 80vh;
   max-width: 500px;
   overflow: auto;
+  margin-top: 15px;
 }
 
 .input {

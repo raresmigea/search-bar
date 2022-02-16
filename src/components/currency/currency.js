@@ -2,18 +2,18 @@ import React from 'react';
 import ListItem from '@material-ui/core/ListItem';
 import './currency.css';
 
-const Currency = (data) => {
+const getFlag = (currency) => {
   let flag = null;
-  console.log('data: ', data);
   try {
-    flag = require(`../../flags/${data.data.currency
-      .substring(0, 2)
-      .toLowerCase()}.png`);
+    flag = require(`../../flags/${currency.substring(0, 2).toLowerCase()}.png`);
   } catch {
     flag = null;
   }
+  return flag;
+};
 
-  console.log('fff ', flag);
+const Currency = (data) => {
+  const flag = getFlag(data.data.currency);
   return (
     <ListItem className='list-item'>
       <div className='currency-item'>
