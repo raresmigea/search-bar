@@ -4,6 +4,7 @@ import { useQuery } from 'react-query';
 import Currency from './currency';
 import List from '@material-ui/core/List';
 import Paper from '@material-ui/core/Paper';
+import './fetch.css';
 
 const Fetch = () => {
   const { isLoading, isError, data, error, refetch, isSuccess } = useQuery(
@@ -56,11 +57,11 @@ const Fetch = () => {
         value={name}
         onChange={filter}
         className='input'
-        placeholder='search currency'
+        placeholder='Search by currency code'
       />
       {isSuccess ? (
-        <Paper style={{ height: 400, overflow: 'auto' }}>
-          <List>
+        <Paper className='paper'>
+          <List className='list'>
             {list.map((element, index) => (
               <Currency data={element} key={`currency-${index}`} />
             ))}

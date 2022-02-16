@@ -1,0 +1,13 @@
+.list {
+  width: 95%;
+}
+
+.paper {
+  height: 400px;
+  width: 500px;
+  overflow: auto;
+}
+
+.input {
+  width: 500px;
+}
