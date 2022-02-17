@@ -1,6 +1,6 @@
 import React from 'react';
 import ListItem from '@material-ui/core/ListItem';
-import './currency.css';
+// import './currency.css';
 
 const getFlag = (currency) => {
   let flag = null;
