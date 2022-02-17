@@ -1,4 +1,3 @@
-import React from 'react';
 import '@testing-library/react';
 import { search } from './container';
 
@@ -88,14 +87,14 @@ describe('Container search function', () => {
       flags: ['provided'],
     },
   ];
+  it('test filter currency code and name', () => {
+    const result = search(searchedList, 'AAA');
+    expect(result).toHaveLength(2);
+  });
+
   it('test filter currency code', () => {
     const result = search(searchedList2, 'MXN');
     expect(result).toHaveLength(1);
     expect(result[0]).toBe(searchedList2[1]);
-  });
-
-  it('test filter currency code and name', () => {
-    const result = search(searchedList, 'AAA');
-    expect(result).toHaveLength(2);
   });
 });
