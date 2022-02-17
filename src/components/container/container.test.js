@@ -2,7 +2,7 @@ import React from 'react';
 import '@testing-library/react';
 import { search } from './container';
 
-describe('test search ', () => {
+describe('Container search function', () => {
   const searchedList = [
     {
       currency: 'AAA',
@@ -27,7 +27,7 @@ describe('test search ', () => {
     {
       currency: 'MXN',
       precision: 2,
-      nameI18N: 'AAAsasas',
+      nameI18N: 'AAAname',
       exchangeRate: {
         buy: 22.38,
         middle: 22.98,
